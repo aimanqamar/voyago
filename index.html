@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voyago – Book your next flight</title>
+  <meta name="description" content="Search flights, compare prices and get your e-ticket instantly.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Voyago home">
+        <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="currentColor" opacity=".18"/><path d="M6 17.5l20-9-7.5 17-3-7z" fill="currentColor"/></svg>
+        Voyago
+      </a>
+      <nav class="nav-links">
+        <a href="#destinations">Destinations</a>
+        <a href="#why">Why Voyago</a>
+        <a href="#faq">Help</a>
+      </nav>
+      <div class="nav-right">
+        <button class="btn btn-ghost" id="open-manage">Manage booking</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <svg class="hero-art" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd9a0"/><stop offset="1" stop-color="#ff8a5c"/></linearGradient>
+        </defs>
+        <circle cx="1090" cy="300" r="120" fill="url(#sun)" opacity=".95"/>
+        <circle cx="1090" cy="300" r="180" fill="#ffd9a0" opacity=".12"/>
+        <path d="M0 400 L180 290 L300 370 L470 240 L640 380 L780 310 L960 420 L1130 330 L1300 410 L1440 350 L1440 520 L0 520Z" fill="#0b4a63" opacity=".55"/>
+        <path d="M0 450 L140 380 L260 430 L420 350 L560 440 L720 380 L880 450 L1040 390 L1200 455 L1440 400 L1440 520 L0 520Z" fill="#083a50" opacity=".8"/>
+        <path d="M0 490 C240 450 480 520 720 485 C960 450 1200 520 1440 480 L1440 520 L0 520Z" fill="#f4f8fb"/>
+      </svg>
+      <div class="cloud c1"></div><div class="cloud c2"></div>
+      <svg class="plane" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 34l56-24-20 44-9-17z" fill="#fff"/><path d="M31 37l9-17-14 14z" fill="#d6e6ee"/></svg>
+
+      <div class="wrap hero-copy">
+        <span class="eyebrow">✈ 10 destinations · instant e-tickets</span>
+        <h1>Your next adventure <em>starts here.</em></h1>
+        <p>Search flights, compare cabins and book in minutes — with clear prices and full refund if you cancel up to 72 hours before departure.</p>
+      </div>
+
+      <form id="search" class="wrap search-card" novalidate>
+        <label class="sf"><span>From</span><select id="s-from" name="from" required></select></label>
+        <button type="button" class="swap" id="swap" aria-label="Swap cities" title="Swap">⇄</button>
+        <label class="sf"><span>To</span><select id="s-to" name="to" required></select></label>
+        <label class="sf"><span>Depart</span><input id="s-date" name="date" type="date" required></label>
+        <label class="sf"><span>Travellers</span><select id="s-pax" name="passengers"></select></label>
+        <label class="sf"><span>Cabin</span><select id="s-cabin" name="cabin"></select></label>
+        <button class="btn btn-accent btn-lg" type="submit">Search flights</button>
+      </form>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" class="wrap results" hidden>
+      <div class="results-head">
+        <div>
+          <h2 id="r-title">Flights</h2>
+          <p id="r-sub" class="muted"></p>
+        </div>
+        <div class="chips" id="sort" role="tablist" aria-label="Sort flights">
+          <button class="chip active" data-sort="price">Cheapest</button>
+          <button class="chip" data-sort="duration">Fastest</button>
+          <button class="chip" data-sort="departs">Earliest</button>
+        </div>
+      </div>
+      <div id="r-list" class="trip-list"></div>
+    </section>
+
+    <!-- DESTINATIONS -->
+    <section id="destinations" class="wrap section">
+      <div class="section-head">
+        <span class="kicker">Popular right now</span>
+        <h2>Where to next?</h2>
+        <p class="muted">Tap a destination to start planning. Prices are per person, one way, from Lahore.</p>
+      </div>
+      <div id="dest-grid" class="dest-grid"></div>
+    </section>
+
+    <!-- WHY -->
+    <section id="why" class="why">
+      <div class="wrap section">
+        <div class="section-head center">
+          <span class="kicker">Why Voyago</span>
+          <h2>Travel without the tangle</h2>
+        </div>
+        <div class="features">
+          <div class="feature"><span class="ico">🔒</span><h3>Secure checkout</h3><p>We check every detail before you pay, and your full card number is never saved.</p></div>
+          <div class="feature"><span class="ico">🏷️</span><h3>Honest pricing</h3><p>Fare, taxes and fees are shown before you pay. Try code <b>WELCOME10</b>.</p></div>
+          <div class="feature"><span class="ico">↩️</span><h3>Flexible changes</h3><p>Cancel up to 72h before departure for a full refund.</p></div>
+          <div class="feature"><span class="ico">🎫</span><h3>Instant e-ticket</h3><p>Get your reference and seats the second payment succeeds.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="wrap section">
+      <div class="section-head">
+        <span class="kicker">Good to know</span>
+        <h2>Questions, answered</h2>
+      </div>
+      <div class="faq">
+        <details><summary>How do I book a flight?</summary><p>Choose your cities, date and travellers, press <b>Search flights</b>, pick a flight, enter traveller details and pay. Your e-ticket appears instantly.</p></details>
+        <details><summary>Can I cancel my booking?</summary><p>Yes. Cancel more than 72 hours before departure for a full refund, or between 24 and 72 hours for a 70% refund. Open <b>Manage booking</b> at the top and enter your reference and email.</p></details>
+        <details><summary>What do I need to bring?</summary><p>A valid passport or ID matching the name you entered, and your booking reference (like VG-AB12CD). You can print your ticket from the confirmation screen.</p></details>
+        <details><summary>Is my card information safe?</summary><p>We only keep the card brand and last four digits. Your full card number is never saved.</p></details>
+        <details><summary>Are there any discounts?</summary><p>Yes — enter <b>WELCOME10</b> for 10% off, or <b>FAMILY15</b> for 15% off when booking for three or more travellers.</p></details>
+        <details><summary>Is this a real airline?</summary><p>No. Voyago is a demo project: payments are simulated and no real tickets are issued or charged.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div><b>Voyago</b> · Flights made simple.</div>
+      <div class="muted small">Demo site — payments are simulated. No real tickets are issued or charged.</div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-x" data-close aria-label="Close">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
